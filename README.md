@@ -1,26 +1,156 @@
+# Airbnb Clone Project
 
-# airbnb-clone-project
+## Overview
 
-## Overview of the project
-The backend for the Airbnb Clone project is designed to provide a robust and scalable foundation for managing user interactions, property listings, bookings, and payments. This backend will support various functionalities required to mimic the core features of Airbnb, ensuring a smooth experience for users and hosts.
-## Project goals
-1.  User Management: Implement a secure system for user registration, authentication, and profile management.
-2.  Property Management: Develop features for property listing creation, updates, and retrieval.
-3.  Booking System: Create a booking mechanism for users to reserve properties and manage booking details.
-4.  Payment Processing: Integrate a payment system to handle transactions and record payment details.
-5.  Review System: Allow users to leave reviews and ratings for properties.
-6.  Data Optimization: Ensure efficient data retrieval and storage through database optimizations.
+This project is a full-stack clone of the Airbnb platform.
+
+## Project Goals
+
+- Understand and implement a modern web application architecture.
+
+- Practice full-stack development with real-world features.
+
+- Gain experience using technologies commonly used in production environments.
+
+## Tech Stack
+
+- **Frontend:**
+
+- **Backend:**
+
+- **Database:**
+
+- **Authentication:**
+
+- **Deployment:**
+
 ## Team Roles
--   Backend Developer: Responsible for implementing API endpoints, database schemas, and business logic.
--   Database Administrator: Manages database design, indexing, and optimizations.
--   DevOps Engineer: Handles deployment, monitoring, and scaling of the backend services.
--   QA Engineer: Ensures the backend functionalities are thoroughly tested and meet quality standards.
-## Technology Stack
--   Django: A high-level Python web framework used for building the RESTful API.
--   Django REST Framework: Provides tools for creating and managing RESTful APIs.
--   PostgreSQL: A powerful relational database used for data storage.
--   GraphQL: Allows for flexible and efficient querying of data.
--   Celery: For handling asynchronous tasks such as sending notifications or processing payments.
--   Redis: Used for caching and session management.
--   Docker: Containerization tool for consistent development and deployment 
--   CI/CD Pipelines: Automated pipelines for testing and deploying code changes.
+
+Below are the key roles involved in the development of the Airbnb Clone Project, along with their responsibilities:
+
+### 👨‍💻 Backend Developer
+
+Responsible for building the server-side logic, APIs, and integrating the frontend with the database. Ensures secure, scalable, and efficient handling of requests.
+
+### 🎨 Frontend Developer
+
+Handles the client-side of the application using React. Focuses on building user interfaces, ensuring responsiveness, and delivering a smooth user experience.
+
+### 🛢️ Database Administrator (DBA)
+
+Designs and manages the database schema, ensures data integrity and performance optimization, and handles backups and migrations.
+
+### 🔐 DevOps Engineer
+
+Automates deployment, monitors infrastructure, and ensures continuous integration/continuous deployment (CI/CD). Handles cloud configurations and system reliability.
+
+### 📐 UI/UX Designer
+
+Designs the application's layout and user flow. Ensures the platform is intuitive, accessible, and visually appealing to end-users.
+
+### 🧪 QA Engineer
+
+Develops and executes test plans to identify bugs and ensure that new features do not break existing functionality. Maintains the quality and reliability of the application.
+
+### 📋 Project Manager
+
+Coordinates the team's efforts, tracks progress, sets deadlines, and ensures the project meets business goals. Acts as a liaison between developers and stakeholders.
+
+## Database Design
+
+This section outlines the core entities in our Airbnb Clone application, along with their key fields and relationships.
+
+### 🧑 Users
+
+Represents individuals using the platform, either as guests or hosts.
+
+**Key Fields:**
+
+- `id` (Primary Key)
+- `name`
+- `email`
+- `password_hash`
+- `is_host` (boolean)
+
+**Relationships:**
+
+- A user can list multiple properties (1:N).
+- A user can make multiple bookings (1:N).
+- A user can leave multiple reviews (1:N).
+
+---
+
+### 🏠 Properties
+
+Represents the listings created by hosts.
+
+**Key Fields:**
+
+- `id` (Primary Key)
+- `user_id` (Foreign Key to Users)
+- `title`
+- `description`
+- `location`
+- `price_per_night`
+
+**Relationships:**
+
+- A property belongs to a user (N:1).
+- A property can have many bookings (1:N).
+- A property can have many reviews (1:N).
+
+---
+
+### 📅 Bookings
+
+Represents reservations made by guests for properties.
+
+**Key Fields:**
+
+- `id` (Primary Key)
+- `user_id` (Foreign Key to Users)
+- `property_id` (Foreign Key to Properties)
+- `start_date`
+- `end_date`
+- `total_price`
+
+**Relationships:**
+
+- A booking belongs to a user and a property (N:1).
+- A booking can have one payment (1:1).
+
+---
+
+### ⭐ Reviews
+
+Represents user feedback on properties.
+
+**Key Fields:**
+
+- `id` (Primary Key)
+- `user_id` (Foreign Key to Users)
+- `property_id` (Foreign Key to Properties)
+- `rating`
+- `comment`
+
+**Relationships:**
+
+- A review is made by a user for a property (N:1).
+
+---
+
+### 💳 Payments
+
+Represents payments made for bookings.
+
+**Key Fields:**
+
+- `id` (Primary Key)
+- `booking_id` (Foreign Key to Bookings)
+- `payment_date`
+- `amount`
+- `status`
+
+**Relationships:**
+
+- A payment is linked to one booking (1:1).
