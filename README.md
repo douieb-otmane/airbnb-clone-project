@@ -188,3 +188,47 @@ Guests can leave reviews and ratings after completing a stay. This feature build
 ### 💳 Payments
 
 Facilitates secure payment processing for bookings. Users can pay for their reservations, and hosts receive confirmation once payments are completed.
+
+## 🔐 API Security
+
+Securing the backend APIs is essential to protect sensitive user information, prevent abuse, and ensure the integrity of the platform. This section outlines the key security measures applied in this project.
+
+---
+
+### 🔑 Authentication
+
+User authentication ensures that only verified users can access their accounts and perform actions. We use techniques such as token-based authentication (e.g., JWT) to validate user identity and secure each session.
+
+**Why It Matters:** Prevents unauthorized access to user accounts and personal data.
+
+---
+
+### 🛡️ Authorization
+
+Once authenticated, users must only be allowed to perform actions they are permitted to do. Role-based access control (RBAC) is used to ensure, for example, that a guest cannot edit a host's property.
+
+**Why It Matters:** Protects system integrity by preventing privilege escalation and unauthorized data manipulation.
+
+---
+
+### 🚦 Rate Limiting
+
+Rate limiting is used to restrict the number of requests a client can make within a time period. This helps defend against denial-of-service (DoS) attacks and prevents API abuse.
+
+**Why It Matters:** Preserves server resources and ensures fair use of the platform.
+
+---
+
+### 🔒 Data Encryption
+
+Sensitive data such as passwords are encrypted using hashing algorithms (e.g., bcrypt). All communications are secured with HTTPS to protect data in transit.
+
+**Why It Matters:** Ensures that user credentials and payment details cannot be intercepted or stolen.
+
+---
+
+### 🧪 Input Validation & Sanitization
+
+All inputs are validated and sanitized to protect against common threats like SQL Injection and Cross-Site Scripting (XSS).
+
+**Why It Matters:** Prevents malicious users from exploiting system vulnerabilities.
