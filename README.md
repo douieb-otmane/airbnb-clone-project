@@ -232,3 +232,23 @@ Sensitive data such as passwords are encrypted using hashing algorithms (e.g., b
 All inputs are validated and sanitized to protect against common threats like SQL Injection and Cross-Site Scripting (XSS).
 
 **Why It Matters:** Prevents malicious users from exploiting system vulnerabilities.
+
+### 6. CI/CD Pipeline Overview
+
+mandatory
+
+Score: 100.0% (Checks completed: 100.0%)
+
+**Objective:** Understand how CI/CD pipelines contribute to the development process.
+
+**Instructions:**
+
+- In your `README.md` file, create a section called “CI/CD Pipeline”.
+- Briefly explain what CI/CD pipelines are and why they are important for the project.
+- Mention the tools that could be used for this (e.g., GitHub Actions, Docker, etc.).
+- Commit and push the changes to your GitHub repository.
+
+**Repo:**
+
+- GitHub repository: `airbnb-clone-project`
+- File: `README.md`
